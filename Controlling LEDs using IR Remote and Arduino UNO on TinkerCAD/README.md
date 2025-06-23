@@ -1,89 +1,86 @@
-🔴🔵🟢 Controlling LEDs Using IR Remote and Arduino UNO
-📌 Project Overview
-This project demonstrates how to control multiple LEDs (blue, orange, green) using an IR remote and an Arduino UNO on Tinkercad Circuits. Each button press on the IR remote toggles the LEDs on or off based on the code received.
+# 🔴🟢🔵 IR Remote Controlled LEDs with Arduino UNO
 
-🧰 Components Used
-Component	Quantity
-Arduino UNO	1
-IR Receiver Module	1
-IR Remote	1
-LEDs (Blue, Orange, Green)	3
-Resistors (220Ω or 330Ω)	3
-Breadboard	1
-Jumper Wires	Several
+This project demonstrates how to control three different LEDs (Blue, Orange, and Green) using an IR remote and an Arduino UNO. The IR remote sends unique signals that are decoded by the Arduino and used to toggle the LEDs on or off.
 
-🧠 How It Works
-The IR remote sends signals as unique codes for each button press.
+---
 
-The IR receiver (connected to pin 12) captures these signals.
+## 📁 Project Structure
 
-Arduino decodes the IR signal and matches it to specific cases using a switch statement.
+- **Hardware**: Arduino UNO, IR receiver module, 3 LEDs, resistors, breadboard, jumper wires.
+- **Software**: Arduino IDE / Tinkercad Circuits, IRremote library.
 
-Depending on the button pressed, it turns ON/OFF specific LEDs.
+---
 
-📟 Button to LED Mapping
-Remote Button	IR Code (decimal)	Action
-1	-284115200	Turn ON Blue LED
-2	-300826880	Turn OFF Blue LED
-3	-317538560	Turn ON Orange LED
-4	-350961920	Turn OFF Orange LED
-5	-367673600	Turn ON Green LED
-6	-384385280	Turn OFF Green LED
+## 🚀 Features
 
-🛠 Circuit Connections
-Arduino Pin	Connected To
-12	IR Receiver OUT pin
-2	Blue LED (via resistor)
-3	Orange LED (via resistor)
-4	Green LED (via resistor)
-GND	Common GND
-5V	IR Receiver VCC
+- Turn ON/OFF LEDs using IR remote buttons.
+- IR codes decoded and mapped to specific actions.
+- Serial Monitor output for IR code debugging.
 
-Each LED's cathode (short leg) goes to GND through a resistor.
+---
 
-💻 Arduino Code
-The project uses the IRremote library. Make sure to:
+## 🧰 Components Required
 
-Add #include <IRremote.h> at the top.
+| Component            | Quantity |
+|---------------------|----------|
+| Arduino UNO         | 1        |
+| IR Receiver Module  | 1        |
+| IR Remote Control   | 1        |
+| LEDs (Blue, Orange, Green) | 3        |
+| Resistors (220Ω or 330Ω) | 3        |
+| Breadboard          | 1        |
+| Jumper Wires        | Several  |
 
-Use IrReceiver.begin(pin) in setup() to initialize the receiver.
+---
 
-Use IrReceiver.decode() and IrReceiver.decodedIRData.decodedRawData to read the IR code.
+## 🔌 Circuit Diagram
 
-Use IrReceiver.resume() to get ready for the next input.
+| Arduino Pin | Connected To         |
+|-------------|----------------------|
+| 12          | IR Receiver OUT      |
+| 2           | Blue LED (via resistor) |
+| 3           | Orange LED (via resistor) |
+| 4           | Green LED (via resistor) |
+| 5V          | IR Receiver VCC      |
+| GND         | IR Receiver GND + LED cathodes |
 
-🔧 How to Run in TinkerCAD
-Go to Tinkercad Circuits.
+---
 
-Create a new circuit and assemble the components as described above.
+## 💡 LED Control Mapping
 
-Upload or paste the code into the Arduino.
+| Remote Button | IR Code (Decimal) | Action              |
+|---------------|-------------------|---------------------|
+| 1             | -284115200        | Turn ON Blue LED    |
+| 2             | -300826880        | Turn OFF Blue LED   |
+| 3             | -317538560        | Turn ON Orange LED  |
+| 4             | -350961920        | Turn OFF Orange LED |
+| 5             | -367673600        | Turn ON Green LED   |
+| 6             | -384385280        | Turn OFF Green LED  |
 
-Start simulation.
+> ⚠️ **Note**: IR codes may vary depending on your remote. Use `Serial.println()` to detect actual values.
 
-Use the IR remote interface to send button presses (1–6).
+---
 
-Observe LEDs turning ON/OFF as per the button codes.
+## 🛠 Setup Instructions
 
-📝 Notes
-The IR code values may vary based on the remote you use. Run the circuit and check Serial Monitor to get the actual codes from your remote.
+1. Open the [Tinkercad Circuits](https://tinkercad.com/) workspace or Arduino IDE.
+2. Connect components as described above.
+3. Upload the code to Arduino.
+4. Open Serial Monitor to view decoded IR signals.
+5. Press remote buttons to control the LEDs.
 
-Adjust the case values in switch(decCode) according to your specific IR remote codes if needed.
+---
+## 👤 Author
 
-Use Serial.begin(9600) and Serial.println() for debugging.
+**Sajeeb Sarkar**  
+Electrical & Electronic Engineering, KUET  
+June 2025
 
-📷 Demo Screenshot
-(Optional: Add a screenshot of your Tinkercad circuit simulation)
+---
 
-👨‍💻 Author
-Sajeeb Sarkar
-Student, KUET
-Project Date: June 2025
+## 📝 License
 
-Would you like me to generate a downloadable .md file or save this to Tinkercad Notes format?
-
-
-
+This project is for educational purposes only. You may use or modify it for personal or academic use.
 
 
 
