@@ -89,8 +89,8 @@ If this project helped you:
 
 ## 👨‍💻 Author
 
-**SALEH SADID MIR**  
-Dept. of Computer Science & Engineering  
+**Sajeeb Sarkar**  
+Dept. of Electrical & Electronic Engineering  
 **Khulna University of Engineering & Technology (KUET)**
 
 ---
