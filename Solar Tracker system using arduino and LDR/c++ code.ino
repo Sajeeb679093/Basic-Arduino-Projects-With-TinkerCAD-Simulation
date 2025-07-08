@@ -1,7 +1,3 @@
-// C++ code
-//Author: Saleh Sadid Mir
-/*title: Solar Tracker System Using Arduino and LDR*/
-
 #include<Servo.h>
 Servo horizontal;
 int servoh=180;
