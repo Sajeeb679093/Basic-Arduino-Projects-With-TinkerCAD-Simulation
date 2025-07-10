@@ -1,36 +1,29 @@
-
-// C++ code
-//Author: Saleh Sadid Mir
-//CSE, KUET
-/* Title: Digital Thermometer Using Arduino and LCD*/
-
 #include <LiquidCrystal.h>
 
-LiquidCrystal lcd(12,11,5,4,3,2);
-int degree;
-double realdegree;
+// LCD pin connections: RS, EN, D4, D5, D6, D7
+LiquidCrystal lcd(7, 8, 9, 10, 11, 12);
 
+// TMP36 connected to analog pin
+const int tempPin = A0;
 
-void setup()
-{
-  lcd.begin(16,2);
-  degree=0;
-  realdegree=0.0;
-  lcd.print("Today's Temp: ");
-  
+void setup() {
+  lcd.begin(16, 2);
+  lcd.setCursor(0, 0);
+  lcd.print("Temp Sensor Ready");
+  delay(3000);
+  lcd.clear();
 }
 
-void loop()
-{
-  degree=analogRead(0);
-  realdegree=(double) degree/ 1024;
-  realdegree*=5;
-  realdegree-=0.5;
-  realdegree*=100;
-  
-  lcd.setCursor(0,1);
-  realdegree=(9.0/5)*(realdegree)+32;
-  String output= String (realdegree)+ String((char)178)+"F";
-  lcd.print(output);
-  
+void loop() {
+  int analogValue = analogRead(tempPin);        // Read voltage from TMP36
+  float voltage = analogValue * (5.0 / 1023.0); // Convert to voltage
+  float tempC = (voltage - 0.5) * 100.0;        // TMP36 formula for °C
+
+  lcd.setCursor(0, 0);
+  lcd.print("Now Temp:");
+  lcd.setCursor(0, 1);
+  lcd.print(tempC);
+  lcd.print(" C");
+
+  delay(1000); // Update every second
 }
